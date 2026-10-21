@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MH BHU Islampura Diabetes Study – Data Entry (Online Submission)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f7f5;--card:#fff;--tx:#16241d;--mu:#5a6a62;--bd:#d3ddd7;--ac:#1f5c3a;--on:#fff;--gr:#eaf0ed;--bad:#a8231b;--badb:#fde7e5;--wr:#7a5200;--wrb:#fff0d0;--ok:#1b5e36;--okb:#e0f1e6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101814;--card:#18231d;--tx:#e6efe9;--mu:#9bb0a5;--bd:#2c3d34;--ac:#5fc08a;--on:#08140d;--gr:#213129;--bad:#ff8f86;--badb:#3a1c1a;--wr:#f2c15c;--wrb:#3a2d10;--ok:#7fd9a2;--okb:#16301f}}
+:root[data-theme="dark"]{--bg:#101814;--card:#18231d;--tx:#e6efe9;--mu:#9bb0a5;--bd:#2c3d34;--ac:#5fc08a;--on:#08140d;--gr:#213129;--bad:#ff8f86;--badb:#3a1c1a;--wr:#f2c15c;--wrb:#3a2d10;--ok:#7fd9a2;--okb:#16301f}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 96px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:84px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--ac);padding:8px 14px}
+h1{font-size:17px;margin:0}header small{color:var(--mu)}
+.top{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.chip{font-size:12px;padding:2px 8px;border-radius:99px;background:var(--gr);color:var(--mu)}.chip.ok{background:var(--okb);color:var(--ok)}.chip.wr{background:var(--wrb);color:var(--wr)}
+nav{display:flex;gap:6px;margin-top:6px;overflow-x:auto}
+nav button,.btn{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:8px 12px;min-height:40px;cursor:pointer;white-space:nowrap}
+nav button.on,.btn.p{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.btn.d{color:var(--bad)}
+main{max-width:980px;margin:0 auto;padding:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.card h2{font-size:16px;margin:0 0 8px;color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px 12px}
+.q[hidden]{display:none}.q label.l{display:block;font-size:13px;color:var(--mu);margin-bottom:3px}
+.q.req label.l::after{content:" *";color:var(--bad)}
+input,select,textarea{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:9px 10px;min-height:42px}
+input:focus,select:focus{outline:2px solid var(--ac)}
+.q.bad input,.q.bad select{border-color:var(--bad)}.err{color:var(--bad);font-size:12px;min-height:0}
+.calc{background:var(--gr);border-radius:8px;padding:9px 10px;min-height:42px;font-weight:600}.calc.bad{background:var(--badb);color:var(--bad)}.calc.wr{background:var(--wrb);color:var(--wr)}.calc.ok{background:var(--okb);color:var(--ok)}
+.grp{display:flex;flex-wrap:wrap;gap:6px}.grp label{display:flex;align-items:center;gap:6px;border:1px solid var(--bd);border-radius:8px;padding:8px 10px;cursor:pointer}.grp input{width:20px;height:20px;min-height:0}
+.wide{grid-column:1/-1}.note{font-size:13px;color:var(--mu);margin:0 0 8px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--bd);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left;white-space:nowrap}tr.r{cursor:pointer}tr.r:hover{background:var(--gr)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.stats h3{margin:0 0 6px;font-size:14px}.stats div.row{display:flex;justify-content:space-between;font-size:14px;padding:2px 0}
+.kpis{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.kp{margin:0;text-align:center}.kp b{display:block;font-size:28px;color:var(--ac)}.kp small,.kpis small{color:var(--mu)}.bw{margin:5px 0}.bl{display:flex;justify-content:space-between;font-size:13px}.bt{height:8px;background:var(--gr);border-radius:4px;overflow:hidden}.bt i{display:block;height:100%;background:var(--ac)}#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:76px;background:var(--tx);color:var(--bg);padding:10px 14px;border-radius:10px;z-index:40;max-width:92%;display:none}
+dialog{border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);width:min(640px,94vw)}dialog textarea{height:260px}
+</style></head><body>
+<header>
+ <div class="top"><div><h1>Diabetes Study Data Entry – Islampura, Gujar Khan</h1><small>Submit after each respondent · data goes to the central server</small></div><span class="chip" id="st">Checking server…</span></div>
+ <div class="top" style="margin-top:4px"><small>Saved on server: <b id="nsv">–</b> · Pending on this device: <b id="npd">0</b></small><button class="btn" id="spd" hidden>Send pending</button></div>
+ <nav><button data-t="entry" class="on">Data entry</button><button data-t="loc">This device <span id="cnt"></span></button><button data-t="dash">Dashboard (admin)</button></nav>
+</header>
+<main>
+ <div class="card" id="warn" hidden><b>Server not connected yet.</b> Records are saved only on this device (see the “This device” tab) until the server address is set in the page. See SETUP.md.</div>
+ <section id="entry"><div id="form"></div></section>
+ <section id="loc" hidden><div class="card"><div class="top"><div><button class="btn p" id="ldl">Download CSV (this device)</button> <button class="btn" id="lcp">Copy CSV</button></div><div><button class="btn d" id="lclr">Remove sent records from this device</button></div></div>
+  <p class="note">A backup copy of every record you submit stays on this device. “Pending” means it has not reached the server yet; it is sent automatically when the internet returns, or press Send pending.</p><div class="tw"><table id="tbl"></table></div></div></section>
+ <section id="dash" hidden><div class="card"><div class="top"><div><input id="akey" type="password" placeholder="Admin key" style="max-width:220px"> <button class="btn p" id="aload">Load dashboard</button></div><div><button class="btn" id="adl">Download all data (CSV)</button></div></div><p class="note" id="astat">Enter the admin key to see live results from all enumerators. Refreshes every 15 seconds.</p></div><div class="stats" id="stats"></div></section>
+</main>
+<div class="bar" id="bar"><span class="chip" id="prog"></span><button class="btn" id="new">Clear form</button><button class="btn p" id="save">✓ Submit &amp; next respondent</button></div>
+<div id="toast"></div>
+<dialog id="dlg"><p class="note"><b>Your data as CSV.</b> Press Copy, paste into Notepad or Excel and save as <b>.csv</b>.</p><textarea id="ta" readonly></textarea><p><button class="btn p" id="cp">Copy to clipboard</button> <button class="btn" id="sa">Select all</button> <button class="btn" onclick="dlg.close()">Close</button></p></dialog>
+<script>
+/*SCHEMA*/
+const YN=["Yes","No"];
+const LS={sex:["Male","Female","Prefer not to say"],mar:["Single","Married","Widowed","Divorced/Separated"],edu:["No formal education","Primary (1-5)","Middle (6-8)","Matric (9-10)","Intermediate (11-12)","Graduate or above"],occ:["Farmer/Laborer","Housewife","Self-employed/Business","Govt/Private employee","Student","Retired/Unemployed"],inc:["Less than 20,000","20,000-40,000","40,001-60,000","More than 60,000","Not disclosed"],house:["Kacha (mud/unbaked brick)","Semi-pucca","Pucca (baked brick/concrete)"],known:["Known diabetes","No prior diagnosis","Unsure"],type:["Type 2 (T2DM)","Type 1","Gestational","Unknown"],dur:["Less than 1 year","1-5 years","6-10 years","More than 10 years","Unknown"],trt:["Oral medicines only","Insulin only","Oral medicines + insulin","Diet only","No treatment"],act:["Sedentary","Light (<30 min)","Moderate (30-60 min)","Very active (>60 min)"],diet:["High carbohydrate","Mixed","High fat","Low carbohydrate"],tob:["Never used","Former user","Current user (chhalia/naswar/cigarette)"],fdm:["None","Parent","Both parents","Sibling","Multiple relatives","Don't know"],fbp:["None","Parent","Both parents","Sibling","Don't know"],rbs:["ADA score 5 or more","Symptoms (urination/thirst/weight/fatigue)","Test not required"],meal:["Less than 2 hours","2-4 hours","4-8 hours","More than 8 hours","Unknown"],fin:["Known T2DM","Newly diagnosed T2DM","Pre-diabetes","Normal","Inconclusive"],qc:["Verified correct","Discrepancy found"]};
+const T=(k,l,o)=>({k,l,ty:"t",...o}),S=(k,l,list,o)=>({k,l,ty:"s",list:LS[list]||list,...o}),N=(k,l,mn,mx,o)=>({k,l,ty:"n",mn,mx,...o}),D=(k,l,o)=>({k,l,ty:"d",...o}),TM=(k,l,o)=>({k,l,ty:"tm",...o}),C=(k,l)=>({k,l,ty:"c"}),G=(l,items,none,o)=>({ty:"g",l,items,none,...o});
+const el_=r=>r.Selected_NextBirthday!=="No"&&r.Consent_Obtained==="Yes";
+const known=r=>r.C1_KnownDM==="Known diabetes";
+const rbsOn=r=>r.E3_RBS_Reason&&r.E3_RBS_Reason!=="Test not required";
+const SEC=[
+{t:"Household, visit & consent",f:[
+ T("Questionnaire_No","Questionnaire no.",{r:1}),T("HH_Serial_No","Household register serial no."),T("Cluster_Village","Cluster / village / mohalla no. & name"),T("Address_Landmark","House address / landmark"),
+ D("Visit_Date","Visit date",{r:1,min:"2026-01-01"}),T("Enumerator_Code","Enumerator code",{r:1}),
+ S("Selected_NextBirthday","Selected by next-birthday method?",YN,{r:1}),T("NotSelected_Reason","Reason if not selected / not eligible",{sh:r=>r.Selected_NextBirthday==="No"}),
+ S("Consent_Obtained","Informed consent obtained?",YN,{r:1,sh:r=>r.Selected_NextBirthday!=="No"}),T("Refusal_Reason","Reason for non-participation",{sh:r=>r.Consent_Obtained==="No"})]},
+{t:"Section A – Demographics",sh:el_,f:[
+ N("A1_Age","1A. Age (years)",18,110,{r:1,int:1}),C("A1_AgeGroup","Age group (auto)"),S("A2_Sex","2A. Sex",'sex',{r:1}),S("A3_MaritalStatus","3A. Marital status",'mar'),S("A4_Education","4A. Education",'edu'),S("A5_Occupation","5A. Occupation",'occ'),S("A6_MonthlyIncome","6A. Monthly household income (PKR)",'inc'),
+ N("A7_HH_Size","7A. Household size",1,40,{int:1}),N("A8_Earners","8A. Earning members",0,40,{int:1}),N("A9_Dependents","9A. Dependents",0,40,{int:1}),S("A10_HouseType","10A. House type",'house')]},
+{t:"Section B – ADA diabetes risk test",sh:el_,f:[
+ C("B1_AgeScore","1B. Age score (auto)"),C("B2_SexScore","2B. Sex score (auto)"),S("B3_FamilyHx_DM","3B. Parent/sibling/child with diabetes?",YN),
+ S("B4_GDM_or_Baby4kg","4B. Women: gestational diabetes or baby over 4 kg?",YN,{sh:r=>r.A2_Sex!=="Male"}),S("B5_HighBP_Told","5B. Ever told of high blood pressure?",YN),S("B6_PhysicallyActive","6B. Physically active 30+ min most days?",YN),
+ C("B7_BMIScore","7B. BMI score (auto, from Section E)"),C("B_ADA_TotalScore","Total ADA score (auto)"),C("B_RiskCategory","Risk category (auto)")],note:"Score appears once age, sex, BMI and the Section B answers are filled. Maximum is 11 (the printed proforma says /10); 5 or more = high risk."},
+{t:"Section C – Known diabetes (self-reported)",sh:el_,f:[
+ S("C1_KnownDM","1C. Previously diagnosed with diabetes?",'known'),S("C2_DM_Type","2C. Type of diabetes",'type',{sh:known}),S("C3_DM_Duration","3C. Duration",'dur',{sh:known}),S("C4_DM_Treatment","4C. Current treatment",'trt',{sh:known}),
+ G("5C. Known complications",[["C5_Foot_Ulcer","Foot / ulcer"],["C5_Eye_Problems","Vision problems"],["C5_Kidney_Problems","Kidney problems"],["C5_Neuropathy","Tingling / numbness"],["C5_None","None"],["C5_Not_Examined","Not examined"]],["C5_None","C5_Not_Examined"],{sh:known}),
+ G("6C. Other chronic conditions",[["C6_Hypertension","Hypertension"],["C6_Dyslipidemia","Dyslipidemia"],["C6_Asthma","Asthma"],["C6_Heart_Disease","Heart disease"],["C6_Kidney_Disease","Kidney disease"],["C6_None","None"]],["C6_None"],{sh:known})],note:"Shown only when 1C = Known diabetes; otherwise leave blank as per the proforma."},
+{t:"Section D – Modifiable risk factors",sh:el_,f:[
+ S("D1_PhysicalActivity","1D. Physical activity",'act'),S("D2_Diet","2D. Usual diet",'diet'),S("D3_Tobacco","3D. Tobacco use",'tob'),S("D4_FamHx_DM","4D. Family history – diabetes",'fdm'),S("D5_FamHx_BP","5D. Family history – blood pressure",'fbp')]},
+{t:"Section E – Measurements & tests",sh:el_,f:[
+ N("E1_Weight_kg","1E. Weight (kg)",20,250),N("E1_Height_cm","1E. Height (cm)",100,220),C("E1_BMI","BMI kg/m² (auto)"),N("E1_Waist_cm","1E. Waist (cm)",30,200),
+ N("E2_BP1_Sys","2E. BP reading 1 – systolic",60,260,{int:1}),N("E2_BP1_Dia","BP reading 1 – diastolic",30,150,{int:1}),N("E2_BP2_Sys","BP reading 2 – systolic",60,260,{int:1}),N("E2_BP2_Dia","BP reading 2 – diastolic",30,150,{int:1}),
+ C("E2_BP_Avg_Sys","Average systolic (auto)"),C("E2_BP_Avg_Dia","Average diastolic (auto)"),
+ S("E3_RBS_Reason","3E. Reason RBS test was needed",'rbs'),S("E4_LastMeal","4E. Time since last meal",'meal',{sh:rbsOn}),N("E5_RBS_mgdl","5E. RBS value (mg/dL)",20,600,{int:1,sh:rbsOn}),TM("E5_RBS_Time","RBS test time",{sh:rbsOn}),T("E5_Device_ID","Glucometer device ID",{sh:rbsOn}),C("E6_RBS_Interp","6E. RBS interpretation (auto)"),
+ N("E7_FBG_mgdl","7E. Follow-up FBG (mg/dL)",20,600,{int:1}),D("E7_FBG_Date","FBG date",{min:"2026-01-01"}),C("E7_FBG_Interp","FBG interpretation (auto)"),
+ N("E8_HbA1c_pct","8E. HbA1c % (if available)",3,18),D("E8_HbA1c_Date","HbA1c date",{min:"2026-01-01"}),C("E8_HbA1c_Interp","HbA1c interpretation (auto)")]},
+{t:"Final classification & action",sh:el_,f:[
+ S("Final_Classification","Final case classification",'fin',{r:1}),C("_Hint","Suggested from results (check before choosing)"),
+ G("Action taken",[["Action_Counselling","Counselling given"],["Action_Referred_BHU_FBG","Referred to BHU for FBG"],["Action_Referred_Clinical","Referred for clinical care"],["Action_Continue_Treatment","Advised to continue treatment"],["Action_None_Needed","No further action needed"]],[],{})]},
+{t:"Enumerator sign-off & supervisor QC",f:[
+ T("Enumerator_Name","Enumerator name"),D("Enumerator_Sign_Date","Sign-off date",{min:"2026-01-01"}),S("Supervisor_QC","Supervisor quality check",'qc'),T("QC_Discrepancy_Note","Explanation of discrepancy",{sh:r=>r.Supervisor_QC==="Discrepancy found"})]}];
+const FIELDS=SEC.flatMap(s=>s.f.map(f=>(f.sec=s,f)));
+const COLS=SEC.flatMap(s=>s.f.flatMap(f=>f.ty==="g"?f.items.map(i=>i[0]):f.k&&f.k[0]!=="_"?[f.k]:[]));
+const num=(r,k)=>r[k]===""||r[k]==null||isNaN(+r[k])?null:+r[k];
+function calc(r){const c={},a=num(r,"A1_Age"),w=num(r,"E1_Weight_kg"),h=num(r,"E1_Height_cm");
+ c.A1_AgeGroup=a==null?"":a<30?"18-29":a<45?"30-44":a<60?"45-59":"60+";
+ c.B1_AgeScore=a==null?"":a<40?0:a<50?1:a<60?2:3;
+ c.B2_SexScore=!r.A2_Sex?"":r.A2_Sex==="Male"?1:0;
+ c.E1_BMI=w&&h?Math.round(w/((h/100)**2)*10)/10:"";const b=c.E1_BMI;
+ c.B7_BMIScore=b===""?"":b<25?0:b<30?1:b<40?2:3;
+ const male=r.A2_Sex==="Male",y=male?"N/A (male)":r.B4_GDM_or_Baby4kg;
+ c.B_ADA_TotalScore=(a==null||!r.A2_Sex||b===""||!r.B3_FamilyHx_DM||!r.B5_HighBP_Told||!r.B6_PhysicallyActive||(!male&&!y))?"":c.B1_AgeScore+c.B2_SexScore+(r.B3_FamilyHx_DM==="Yes")+(y==="Yes")+(r.B5_HighBP_Told==="Yes")+(r.B6_PhysicallyActive==="No")+c.B7_BMIScore;
+ c.B_RiskCategory=c.B_ADA_TotalScore===""?"":c.B_ADA_TotalScore>=5?"High risk (5+)":"Low risk (<5)";
+ const av=(x,y)=>{const v=[num(r,x),num(r,y)].filter(z=>z!=null);return v.length?Math.round(v.reduce((p,q)=>p+q)/v.length):""};
+ c.E2_BP_Avg_Sys=av("E2_BP1_Sys","E2_BP2_Sys");c.E2_BP_Avg_Dia=av("E2_BP1_Dia","E2_BP2_Dia");
+ const rb=num(r,"E5_RBS_mgdl"),fb=num(r,"E7_FBG_mgdl"),hb=num(r,"E8_HbA1c_pct");
+ c.E6_RBS_Interp=rb==null?"":rb<140?"Normal (<140)":rb<200?"Pre-diabetes (140-199)":"DM2 suspected (200+)";
+ c.E7_FBG_Interp=fb==null?"":fb>=126?"DM2 (126+)":fb>=100?"Pre-diabetes (100-125)":"Normal (<100)";
+ c.E8_HbA1c_Interp=hb==null?"":hb>=6.5?"DM2 (6.5%+)":hb>=5.7?"Pre-diabetes (5.7-6.4%)":"Normal (<5.7%)";
+ const all=[c.E8_HbA1c_Interp,c.E7_FBG_Interp,c.E6_RBS_Interp].filter(Boolean);
+ c._Hint=r.C1_KnownDM==="Known diabetes"?"Known T2DM (if type is T2DM)":hb!=null||fb!=null?(c.E8_HbA1c_Interp||c.E7_FBG_Interp).replace(/ \(.*/,"").replace("DM2","Newly diagnosed T2DM"):c.E6_RBS_Interp?(rb>=200?"Inconclusive – confirm with FBG/HbA1c":rb>=140?"Inconclusive – follow-up FBG advised":"Normal"):"";
+ return c}
+/*END*
+/* ====== SET THESE TWO VALUES AFTER DEPLOYING THE GOOGLE APPS SCRIPT (see SETUP.md) ====== */
+const ENDPOINT="https://script.google.com/macros/s/AKfycbwcG7j-ED83wc4w-2nlRMqyOlBLOHY6pS0aWF4_DIzxvXu90yU5l7p8SXdmdMLJ23Zf/exec";                    // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+const SUBMIT_KEY="Islampura2026";  // must be the same as SUBMIT_KEY in Code.gs
+/* ======================================================================================== */
+const $=s=>document.querySelector(s),dlg=$("#dlg");
+let rec={},editing=null,W={};
+const mk=(t,a,...k)=>{const e=document.createElement(t);for(const x in a)x==="class"?e.className=a[x]:x==="text"?e.textContent=a[x]:e.setAttribute(x,a[x]);k.flat().forEach(c=>c&&e.append(c));return e};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display="none",3800)};
+const vis=f=>(!f.sec.sh||f.sec.sh(rec))&&(!f.sh||f.sh(rec));
+function chk(f,v){if(v===""||v==null)return"";if(f.ty==="n"){if(v<f.mn||v>f.mx)return`Allowed ${f.mn}–${f.mx}`;if(f.int&&!Number.isInteger(v))return"Whole number"}
+ if(f.ty==="d"&&f.min&&v<f.min)return"Date is before 2026";return""}
+function build(){const root=$("#form");
+ SEC.forEach(s=>{const g=mk("div",{class:"grid"}),card=mk("div",{class:"card"},mk("h2",{text:s.t}),s.note?mk("p",{class:"note",text:s.note}):null,g);s.card=card;
+  s.f.forEach(f=>{f.sec=s;const w=mk("div",{class:"q"+(f.r?" req":"")+(f.ty==="g"?" wide":"")}),lab=mk("label",{class:"l",text:f.l});let inp;
+   if(f.ty==="c"){inp=mk("div",{class:"calc"});w.append(lab,inp)}
+   else if(f.ty==="g"){inp=mk("div",{class:"grp"});f.items.forEach(([k,l])=>{const cb=mk("input",{type:"checkbox"});cb.onchange=()=>{rec[k]=cb.checked?1:0;if(cb.checked)f.items.forEach(([k2])=>{if(k2!==k&&(f.none.includes(k)||f.none.includes(k2))){rec[k2]=0;f.cbs[k2].checked=false}});refresh()};(f.cbs=f.cbs||{})[k]=cb;inp.append(mk("label",{},cb,l))});w.append(lab,inp)}
+   else{if(f.ty==="s"){inp=mk("select",{},mk("option",{value:"",text:"— select —"}),f.list.map(o=>mk("option",{value:o,text:o})))}
+    else{inp=mk("input",{type:f.ty==="n"?"number":f.ty==="d"?"date":f.ty==="tm"?"time":"text"});if(f.ty==="n"){inp.inputMode=f.int?"numeric":"decimal";inp.step=f.int?1:"any";inp.placeholder=`${f.mn}–${f.mx}`}if(f.min)inp.min=f.min}
+    inp.oninput=inp.onchange=()=>{const v=f.ty==="n"?(inp.value===""?"":+inp.value):inp.value;rec[f.k]=v;const e=chk(f,v);w.classList.toggle("bad",!!e);err.textContent=e;refresh()};
+    const err=mk("div",{class:"err"});w.append(lab,inp,err)}
+   W[f.k||f.l]={w,inp,f};g.append(w)});root.append(card)})}
+function setAll(){FIELDS.forEach(f=>{if(f.ty==="g")f.items.forEach(([k])=>f.cbs[k].checked=rec[k]===1);else if(f.ty!=="c"){const x=W[f.k].inp;x.value=rec[f.k]??"";W[f.k].w.classList.remove("bad")}});refresh()}
+function refresh(){const c=calc(rec);let blank=0;
+ SEC.forEach(s=>s.card.hidden=s.sh?!s.sh(rec):false);
+ FIELDS.forEach(f=>{const x=W[f.k||f.l];if(!x)return;const v=vis(f);x.w.hidden=!v;if(!v)return;
+  if(f.ty==="c"){const t=c[f.k];x.inp.textContent=t===""||t==null?"—":t;const cl=/High|DM2|Newly|suspected/.test(t)?"bad":/Pre-/.test(t)?"wr":/Low|Normal/.test(t)?"ok":"";x.inp.className="calc "+cl}
+  else if(f.ty==="g"){if(f.items.some(([k])=>rec[k]===undefined))f.items.forEach(([k])=>rec[k]=rec[k]??0);}
+  else if(rec[f.k]===""||rec[f.k]==null)blank++});
+ $("#prog").textContent=(rec.Questionnaire_No?"Q "+rec.Questionnaire_No+" · ":"")+(editing?"editing · ":"")+(el_(rec)?blank+" blank":"header");
+ try{localStorage.setItem("dm_draft",JSON.stringify({rec,editing}))}catch(e){}}
+function errors(){const e=[];FIELDS.forEach(f=>{if(f.ty==="c"||f.ty==="g"||!vis(f))return;const v=rec[f.k];if(f.r&&(v===""||v==null))e.push(f.l+" is required");const m=chk(f,v);if(m)e.push(f.l+": "+m)});
+ const p=(a,b,n)=>{if(num(rec,a)!=null&&num(rec,b)!=null&&num(rec,a)<=num(rec,b))e.push(n+": systolic must exceed diastolic")};p("E2_BP1_Sys","E2_BP1_Dia","BP 1");p("E2_BP2_Sys","E2_BP2_Dia","BP 2");
+ if(rec.E3_RBS_Reason==="Test not required"&&rec.E5_RBS_mgdl)e.push("RBS value entered but 3E says test not required");const ct=calc(rec).B_ADA_TotalScore;if(rec.E3_RBS_Reason==="ADA score 5 or more"&&ct!==""&&ct<5)e.push("3E says ADA score 5 or more, but the calculated ADA score is "+ct+" (low risk) – choose Symptoms or Test not required");return e}
+
+const dmy=v=>v&&/^\d{4}-\d\d-\d\d$/.test(v)?v.split("-").reverse().join("/"):v;
+const esc=v=>{v=v==null?"":String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+const LKEY="dm_local",uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const loadL=()=>{try{return JSON.parse(localStorage.getItem(LKEY)||"[]")}catch(e){return[]}};
+const saveL=a=>{try{localStorage.setItem(LKEY,JSON.stringify(a))}catch(e){toast("Warning: this device could not store a backup")}};
+const rowOf=out=>{const m={...out,...calc(out)};return COLS.map(k=>{const v=/Date$/.test(k)?dmy(m[k]):m[k];return v==null?"":v})};
+function buildOut(){const out={};FIELDS.forEach(f=>{if(f.ty==="c"||!vis(f))return;if(f.ty==="g")f.items.forEach(([k])=>out[k]=rec[k]===1?1:0);else if(rec[f.k]!==""&&rec[f.k]!=null)out[f.k]=rec[f.k]});if(out.A2_Sex==="Male")out.B4_GDM_or_Baby4kg="N/A (male)";return out}
+let sending=false;
+async function send(it){if(!ENDPOINT)return false;try{const r=await fetch(ENDPOINT,{method:"POST",body:JSON.stringify({key:SUBMIT_KEY,id:it.id,row:it.row})});const t=await r.json();if(t&&t.ok){it.sent=1;it.dup=t.duplicate?1:0;return true}if(t&&t.error==="bad key")toast("Server rejected the submit key – check SUBMIT_KEY")}catch(e){}return false}
+async function sendPending(quiet){if(sending||!ENDPOINT)return;sending=true;const L=loadL();let n=0;for(const it of L)if(!it.sent&&await send(it))n++;saveL(L);sending=false;if(n&&!quiet)toast(n+" pending record(s) sent");ping();renderLocal()}
+async function save(){const er=errors();if(er.length)return toast(er[0]+(er.length>1?` (+${er.length-1} more)`:""));
+ const out=buildOut(),it={id:uid(),q:out.Questionnaire_No,at:new Date().toISOString(),row:rowOf(out),sent:0},L=loadL();
+ const miss=FIELDS.filter(f=>f.ty!=="c"&&f.ty!=="g"&&vis(f)&&out[f.k]===undefined).length;
+ L.push(it);saveL(L);const ok=await send(it);saveL(L);
+ toast(ok?(it.dup?`Sent, but questionnaire ${it.q} already exists on the server – please check. `:"Sent to server. ")+(miss?miss+" questions left blank.":"All visible questions filled."):(ENDPOINT?"No connection – saved on this device, will be sent automatically. ":"Saved on this device (server not set). ")+(miss?miss+" blank.":""));
+ clearForm();ping();renderLocal()}
+function clearForm(){rec={};editing=null;setAll();scrollTo(0,0)}
+function renderLocal(){const L=loadL(),p=L.filter(x=>!x.sent).length;$("#cnt").textContent="("+L.length+")";$("#npd").textContent=p;$("#spd").hidden=!p||!ENDPOINT;
+ const t=$("#tbl");t.replaceChildren(mk("tr",{},["Q no.","Saved at","Status"].map(x=>mk("th",{text:x}))),...L.slice().reverse().map(x=>mk("tr",{},[x.q,new Date(x.at).toLocaleString(),x.sent?(x.dup?"Sent (duplicate Q no.)":"Sent"):"Pending"].map(v=>mk("td",{text:v})))))}
+const localCsv=()=>"\ufeff"+[COLS.join(","),...loadL().map(x=>x.row.map(esc).join(","))].join("\r\n");
+function showCsv(d){$("#ta").value=d;try{dlg.showModal()}catch(e){dlg.setAttribute("open","")}}
+function saveFile(name,text){try{const a=mk("a",{href:URL.createObjectURL(new Blob([text],{type:"text/csv;charset=utf-8"})),download:name});document.body.append(a);a.click();a.remove()}catch(e){showCsv(text)}}
+const stamp=()=>new Date().toISOString().slice(0,10);
+async function ping(){const s=$("#st");if(!ENDPOINT){s.textContent="Server not set – local only";s.className="chip wr";$("#warn").hidden=false;return}
+ try{const r=await fetch(ENDPOINT+"?action=count"),t=await r.json();if(!t.ok)throw 0;s.textContent="Server connected";s.className="chip ok";$("#nsv").textContent=t.count}catch(e){s.textContent="Server unreachable – saving locally";s.className="chip wr"}}
+/* ---- admin dashboard ---- */
+const akey=()=>$("#akey").value.trim()||(()=>{try{return sessionStorage.getItem("dm_akey")||""}catch(e){return""}})();
+async function adm(a){const r=await fetch(ENDPOINT+"?action="+a+"&key="+encodeURIComponent(akey()));return a==="csv"?r.text():r.json()}
+async function loadDash(){if(!ENDPOINT)return $("#astat").textContent="Server not set.";if(!akey())return;
+ try{const t=await adm("rows");if(!t.ok)return $("#astat").textContent=t.error==="bad key"?"Wrong admin key.":"Server error: "+t.error;try{sessionStorage.setItem("dm_akey",akey())}catch(e){}
+  renderStats(t.rows);$("#astat").textContent="Live – "+t.rows.length+" records on server · updated "+new Date().toLocaleTimeString()}catch(e){$("#astat").textContent="Could not reach the server."}}
+function renderStats(A){const el=A.filter(r=>r.Consent_Obtained==="Yes"),cn=f=>el.filter(f).length,pc=(n,d)=>d?Math.round(100*n/d)+"%":"–";
+ const tally=(t,k,src)=>{const m={};(src||el).forEach(r=>{const v=r[k];if(v!==undefined&&v!=="")m[v]=(m[v]||0)+1});const tot=Object.values(m).reduce((p,q)=>p+q,0);return mk("div",{class:"card"},mk("h3",{text:t}),Object.entries(m).sort().map(([a,b])=>{const i=mk("i");i.style.width=Math.round(100*b/tot)+"%";return mk("div",{class:"bw"},mk("div",{class:"bl"},mk("span",{text:a}),mk("b",{text:b+" ("+Math.round(100*b/tot)+"%)"})),mk("div",{class:"bt"},i))}),tot?null:mk("small",{text:"No data yet"}))};
+ const kp=(a,b,c)=>mk("div",{class:"card kp"},mk("small",{text:a}),mk("b",{text:b}),mk("small",{text:c||""})),hi=r=>/^High/.test(r.B_RiskCategory),kd=r=>r.C1_KnownDM==="Known diabetes";
+ const kpis=mk("div",{class:"kpis"},kp("Records",A.length),kp("Consented",el.length,pc(el.length,A.length)),kp("ADA high risk",cn(hi),pc(cn(hi),el.filter(r=>r.B_RiskCategory).length)+" of scored"),kp("RBS 200+",cn(r=>/^DM2/.test(r.E6_RBS_Interp)),"suspected DM2"),kp("Known diabetes",cn(kd),pc(cn(kd),el.length)),kp("Pre-diabetes",cn(r=>r.Final_Classification==="Pre-diabetes"),"final class."),kp("Newly diagnosed",cn(r=>r.Final_Classification==="Newly diagnosed T2DM"),"final class."));
+ const A2=A.map(r=>({...r,_day:r.Visit_Date}));
+ $("#stats").replaceChildren(kpis,tally("ADA risk","B_RiskCategory"),tally("Age group","A1_AgeGroup"),tally("Sex","A2_Sex"),tally("Known diabetes (1C)","C1_KnownDM"),tally("RBS result","E6_RBS_Interp"),tally("FBG result","E7_FBG_Interp"),tally("HbA1c result","E8_HbA1c_Interp"),tally("Final classification","Final_Classification"),tally("Records by enumerator","Enumerator_Code",A2),tally("Entries by visit date","_day",A2))}
+function tab(n){["entry","loc","dash"].forEach(x=>$("#"+x).hidden=x!==n);document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===n));$("#bar").style.display=n==="entry"?"flex":"none";if(n==="loc")renderLocal();if(n==="dash")loadDash()}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+$("#save").onclick=save;$("#new").onclick=()=>{if(!Object.keys(rec).length||confirm("Clear the form? Unsaved entries will be lost."))clearForm()};
+$("#spd").onclick=()=>sendPending();$("#ldl").onclick=()=>{if(!loadL().length)return toast("No records on this device");saveFile("Islampura_Device_"+stamp()+".csv",localCsv())};$("#lcp").onclick=()=>{if(!loadL().length)return toast("No records on this device");showCsv(localCsv())};
+$("#lclr").onclick=()=>{const L=loadL(),p=L.filter(x=>!x.sent);if(L.length===p.length)return toast("Nothing sent yet");if(confirm("Remove "+(L.length-p.length)+" records already sent to the server from this device? Pending ones are kept."))saveL(p),renderLocal()};
+$("#aload").onclick=loadDash;$("#adl").onclick=async()=>{if(!ENDPOINT||!akey())return toast("Enter the admin key first");try{const t=await adm("csv");if(t.charAt(0)==="{")return toast("Wrong admin key");saveFile("Islampura_Diabetes_Data_"+stamp()+".csv","\ufeff"+t)}catch(e){toast("Could not reach the server")}};
+$("#sa").onclick=()=>$("#ta").select();$("#cp").onclick=async()=>{const t=$("#ta").value.replace("\ufeff","");try{await navigator.clipboard.writeText(t);toast("Copied – paste into Notepad/Excel and save as .csv")}catch(e){$("#ta").select();document.execCommand("copy");toast("Copied")}};
+build();try{const d=JSON.parse(localStorage.getItem("dm_draft")||"null");if(d&&d.rec&&Object.keys(d.rec).length)rec=d.rec}catch(e){}setAll();renderLocal();ping();sendPending(true);
+setInterval(()=>{ping();sendPending(true)},30000);setInterval(()=>{if(!$("#dash").hidden)loadDash()},15000);addEventListener("online",()=>sendPending(true));
+if(location.hash==="#dashboard")tab("dash");
+</script></body></html>
